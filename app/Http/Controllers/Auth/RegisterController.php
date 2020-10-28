@@ -55,7 +55,6 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
             'alamat' => ['required', 'string', 'max:32'],
-            'foto' => ['required', 'string', 'max:225'],
         ]);
     }
 
@@ -67,14 +66,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'nama' => $data['nama'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
             'email' => $data['email'],
             'TTL' => $data['TTL'],
-            'alamat' => $data['alamat'],
             'foto' => $data['foto'],
+            'alamat' => $data['alamat'],
         ]);
+
+        if (request()->hasFile('foto')) {
+            $foto = request()->file('foto')->getClientOriginalName();
+            request()->file('foto')->storeAs('foto', $user->id . '/' . $foto, '');
+            $user->update(['foto' => $foto]);
+        }
+
+        return $user;
     }
 }
