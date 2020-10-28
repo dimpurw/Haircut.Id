@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
@@ -80,7 +80,7 @@
                             <div class="col-md-6">
                                 <input id="TTL" type="date" class="form-control @error('TTL') is-invalid @enderror" name="TTL" value="{{ old('TTL') }}" required autocomplete="TTL" autofocus>
 
-                                @error('TTL')
+                                @error('Tanggal Lahir')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -106,13 +106,7 @@
                             <label for="foto" class="col-md-4 col-form-label text-md-right">{{ __('foto') }}</label>
 
                             <div class="col-md-6">
-                                <input id="foto" type="text" class="form-control @error('foto') is-invalid @enderror" name="foto" value="{{ old('foto') }}" required autocomplete="foto" autofocus>
-
-                                @error('foto')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                                <input id="foto" type="file" name="foto">
                             </div>
                         </div>
 
