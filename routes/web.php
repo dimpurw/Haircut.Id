@@ -28,4 +28,7 @@ Route::get('/login', function () {
 
 Auth::routes();
 
+// verifikasi email
+Auth::routes(['verify' => true]);
+
 Route::get('/home', 'HomeController@index')->name('home');
