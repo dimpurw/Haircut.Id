@@ -75,12 +75,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="TTL" class="col-md-4 col-form-label text-md-right">{{ __('TTL') }}</label>
+                            <label for="TGL" class="col-md-4 col-form-label text-md-right">{{ __('Tanggal Lahir') }}</label>
 
                             <div class="col-md-6">
-                                <input id="TTL" type="date" class="form-control @error('TTL') is-invalid @enderror" name="TTL" value="{{ old('TTL') }}" required autocomplete="TTL" autofocus>
+                                <input id="TGL" type="date" class="form-control @error('TGL') is-invalid @enderror" name="TGL" value="{{ old('TGL') }}" required autocomplete="TGL" autofocus>
 
-                                @error('Tanggal Lahir')
+                                @error('TGL')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -95,6 +95,20 @@
                                 <input id="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" value="{{ old('alamat') }}" required autocomplete="alamat" autofocus>
 
                                 @error('alamat')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="nomortelepon" class="col-md-4 col-form-label text-md-right">{{ __('Nomor Telepon') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="nomortelepon" type="number" class="form-control @error('nomortelepon') is-invalid @enderror" name="nomortelepon" value="{{ old('nomortelepon') }}" required autocomplete="nomortelepon" autofocus>
+
+                                @error('nomortelepon')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
