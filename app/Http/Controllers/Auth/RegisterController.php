@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
             'alamat' => ['required', 'string', 'max:32'],
+            'nomortelepon' => ['required', 'digits:13'],
         ]);
     }
 
@@ -71,9 +72,10 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
             'email' => $data['email'],
-            'TTL' => $data['TTL'],
+            'TGL' => $data['TGL'],
             'foto' => $data['foto'],
             'alamat' => $data['alamat'],
+            'nomortelepon' => $data['nomortelepon'],
         ]);
 
         if (request()->hasFile('foto')) {
