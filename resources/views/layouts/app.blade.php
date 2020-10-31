@@ -11,17 +11,17 @@
 
     <title>{{ config('app.name', 'Haircut.Id') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('js/mixitup.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.countdown.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.nicescroll.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <!-- Scripts
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/main.js"></script> -->
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
@@ -36,6 +36,9 @@
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -58,7 +61,7 @@
                             <ul>
                                 <li class="active"><a href="./index.html">Home</a></li>
                                 <li><a href="./shop.html">BarberShop</a></li>
-                                <li><a href="./blog.html">Dashboard</a></li>
+                                <li><a href="/dashboards">Dashboard</a></li>
                                 <li><a href="./contact.html">Contact</a></li>
                             </ul>
                         </nav>
@@ -78,29 +81,28 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->username }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->name }}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/logout">Logout</a>
                             </div>
-                        </li>
-                        @endguest
+                        </div>
                     </ul>
                 </div>
+
+                <form id="logout-form" action="/logout" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
-        </nav>
-        <!-- Header Section End -->
-        @yield('content')
+            @endguest
+            </ul>
+    </div>
+    </div>
+    </nav>
+    <!-- Header Section End -->
+    @yield('content')
 </body>
 
 </html>

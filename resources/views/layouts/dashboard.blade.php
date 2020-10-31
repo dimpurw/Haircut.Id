@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin</title>
+    <title>Dashboard {{ Auth::user()->role }}</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="dashboard/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="dashboard/vendors/css/vendor.bundle.base.css">
@@ -18,6 +18,22 @@
     <link rel="stylesheet" href="dashboard/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="dashboard/images/favicon.ico" />
+
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/todolist.js"></script>
+    <!-- End custom js for this page -->
 </head>
 
 <body>
@@ -50,7 +66,7 @@
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
-                                <p class="mb-1 text-black">David Greymaax</p>
+                                <p class="mb-1 text-black">{{ Auth::user()->name }}</p>
                             </div>
                         </a>
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -155,7 +171,7 @@
                         </div>
                     </li>
                     <li class="nav-item nav-logout d-none d-lg-block">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/logout">
                             <i class="mdi mdi-power"></i>
                         </a>
                     </li>
@@ -173,21 +189,5 @@
         <!-- partial -->
         @yield('content')
 </body>
-
-<!-- plugins:js -->
-<script src="assets/vendors/js/vendor.bundle.base.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page -->
-<script src="assets/vendors/chart.js/Chart.min.js"></script>
-<!-- End plugin js for this page -->
-<!-- inject:js -->
-<script src="assets/js/off-canvas.js"></script>
-<script src="assets/js/hoverable-collapse.js"></script>
-<script src="assets/js/misc.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page -->
-<script src="assets/js/dashboard.js"></script>
-<script src="assets/js/todolist.js"></script>
-<!-- End custom js for this page -->
 
 </html>

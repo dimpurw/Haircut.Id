@@ -1,4 +1,4 @@
-<!-- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form method="POST" action="/postregisterbarbershop" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
@@ -75,20 +75,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="TGL" class="col-md-4 col-form-label text-md-right">{{ __('Tanggal Lahir') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="TGL" type="date" class="form-control @error('TGL') is-invalid @enderror" name="TGL" value="{{ old('TGL') }}" required autocomplete="TGL" autofocus>
-
-                                @error('TGL')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="alamat" class="col-md-4 col-form-label text-md-right">{{ __('Alamat') }}</label>
 
                             <div class="col-md-6">
@@ -137,4 +123,4 @@
         </div>
     </div>
 </div>
-@endsection -->
+@endsection
