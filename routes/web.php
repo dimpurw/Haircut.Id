@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']],
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
-    Route::get('/dashboards', 'DashboardadminController@dashboard');
+    Route::get('/dashboards', 'Admin\DashboardController@index');
 });
 
 // Route::get('/d', function () {
