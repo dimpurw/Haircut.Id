@@ -11,14 +11,14 @@ class AdminbaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        DB::table('users')->insert([
-            'role' => 'admin',
-            'name' => 'Jojo',
-            'username' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('password'),
-        ]);
-    }
+    // public function run()
+    // {
+    //     DB::table('users')->insert([
+    //         'role' => 'admin',
+    //         'name' => 'Jojo',
+    //         'username' => 'admin',
+    //         'email' => 'admin@gmail.com',
+    //         'password' => Hash::make('password'),
+    //     ]);
+    // }
 }
