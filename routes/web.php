@@ -33,6 +33,10 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']],
     Route::get('/dashboards', 'DashboardController@dashboard');
 });
 
+Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
+    Route::get('/dashboards', 'DashboardadminController@dashboard');
+});
+
 // Route::get('/d', function () {
 //     return view('page.dashboard');
 // });
