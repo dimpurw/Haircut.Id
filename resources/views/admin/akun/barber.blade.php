@@ -205,7 +205,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="/dashboards">
                             <span class="menu-title">Dashboard</span>
                             <i class="mdi mdi-home menu-icon"></i>
                         </a>
@@ -268,27 +268,40 @@
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
-                    <div class="row" id="proBanner">
-                        <div class="col-12">
-                            <span class="d-flex align-items-center purchase-popup">
-                                <p>Selamat Datang {{ Auth::user()->name }}</p>
-                                <a href="/home" target="_blank" class="btn download-button purchase-button ml-auto">Back To Home</a>
-                                <i class="mdi mdi-close" id="bannerClose"></i>
-                            </span>
+                    <div class="row">
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Data Barber</h4>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama</th>
+                                                <th>Email</th>
+                                                <th>Alamat</th>
+                                                <th>Nomor Telepon</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($data_barbershop as $barber)
+                                            <tr>
+                                                <td>{{$loop->iteration}}</td>
+                                                <td>{{$barber->nama}}</td>
+                                                <td>{{$barber->email}}</td>
+                                                <td>{{$barber->alamat}}</td>
+                                                <td>{{$barber->nomortelepon}}</td>
+                                                <td>
+                                                    <a href="" class="badge badge-success">Edit</a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="page-header">
-                        <h3 class="page-title">
-                            <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                                <i class="mdi mdi-home"></i>
-                            </span> Dashboard </h3>
-                        <nav aria-label="breadcrumb">
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
