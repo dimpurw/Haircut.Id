@@ -30,11 +30,13 @@ Route::get('/logout', 'AuthController@logout');
 
 Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']], function () {
     Route::get('/home', 'HomeController@index');
-    Route::get('/dashboards', 'DashboardController@dashboard');
+    Route::get('/dashboarduser', 'DashboardController@index');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     Route::get('/dashboards', 'Admin\DashboardController@index');
+    Route::resource('/akunpelanggan', 'Admin\PelangganController');
+    Route::resource('/akunbarbershop', 'Admin\BarbershopController');
 });
 
 // Route::get('/d', function () {
