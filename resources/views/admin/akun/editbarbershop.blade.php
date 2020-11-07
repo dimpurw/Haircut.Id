@@ -7,28 +7,25 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Edit Data Pelanggan</h4>
-                        <form class="forms-sample" action="/akunpelanggan/{{$pelanggan->id}}/update" method="POST">
+                        <h4 class="card-title">Edit Data Barbershop</h4>
+                        <form class="forms-sample" action="/akunbarbershop/{{$barbershop->id}}" method="POST">
+                            @method('patch')
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputName1">Nama</label>
-                                <input type="text" class="form-control" id="exampleInputName1" value="{{$pelanggan->nama}}">
+                                <input type="text" name="nama" class="form-control" id="exampleInputName1" value="{{$barbershop->nama}}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail3">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail3" value="{{$pelanggan->email}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail3">Tanggal Lahir</label>
-                                <input type="date" class="form-control" id="exampleInputEmail3" value="{{$pelanggan->TGL}}">
+                                <input type="email" name="email" class="form-control" id="exampleInputEmail3" value="{{$barbershop->email}}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail3">Alamat</label>
-                                <input type="text" class="form-control" id="exampleInputEmail3" value="{{$pelanggan->alamat}}">
+                                <input type="text" name="alamat" class="form-control" id="exampleInputEmail3" value="{{$barbershop->alamat}}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail3">Nomor Telepon</label>
-                                <input type="number" class="form-control" id="exampleInputEmail3" value="{{$pelanggan->nomortelepon}}">
+                                <input type="number" name="nomortelepon" class="form-control" id="exampleInputEmail3" value="{{$barbershop->nomortelepon}}">
                             </div>
                             <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
                             <button class="btn btn-light">Cancel</button>

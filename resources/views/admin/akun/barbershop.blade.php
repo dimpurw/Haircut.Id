@@ -218,7 +218,7 @@
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="/akunbabershop">Barbershop</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="/akunbarbershop">Barbershop</a></li>
                                 <li class="nav-item"> <a class="nav-link" href="/akunpelanggan">Pelanggan</a></li>
                             </ul>
                         </div>
@@ -234,34 +234,6 @@
                             <span class="menu-title">Data Transaksi</span>
                             <i class="mdi mdi-shopping menu-icon"></i>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/charts/chartjs.html">
-                            <span class="menu-title">Charts</span>
-                            <i class="mdi mdi-chart-bar menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/tables/basic-table.html">
-                            <span class="menu-title">Tables</span>
-                            <i class="mdi mdi-table-large menu-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-                            <span class="menu-title">Sample Pages</span>
-                            <i class="menu-arrow"></i>
-                            <i class="mdi mdi-medical-bag menu-icon"></i>
-                        </a>
-                        <div class="collapse" id="general-pages">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                            </ul>
-                        </div>
                     </li>
                 </ul>
             </nav>
@@ -285,15 +257,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($data_barbershop as $barber)
+                                            @foreach($data_barbershop as $barbershop)
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
-                                                <td>{{$barber->nama}}</td>
-                                                <td>{{$barber->email}}</td>
-                                                <td>{{$barber->alamat}}</td>
-                                                <td>{{$barber->nomortelepon}}</td>
+                                                <td>{{$barbershop->nama}}</td>
+                                                <td>{{$barbershop->email}}</td>
+                                                <td>{{$barbershop->alamat}}</td>
+                                                <td>{{$barbershop->nomortelepon}}</td>
                                                 <td>
-                                                    <a href="" class="badge badge-success">Edit</a>
+                                                    <a href="/akunbarbershop/{{$barbershop->id}}/edit" class="badge badge-success">Edit</a>
                                                 </td>
                                             </tr>
                                             @endforeach
