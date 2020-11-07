@@ -13,8 +13,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $barbershop = \App\Barbershop::all();
-        return view('page.index', ['barbershop' => $barbershop]);
-        // return view('page.index');
+        return view('page.index');
     }
 }
