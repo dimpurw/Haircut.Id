@@ -49,7 +49,7 @@ class PageController extends Controller
             $barbershop->foto = $request->file('foto')->getClientOriginalName();
             $barbershop->save();
         }
-        return redirect('/login')->with('sukses', 'Pendaftaran Berhasil');
+        return redirect('/registerbarbershop')->with('sukses', 'Data Berhasil Dibuat');
     }
 
     public function postregisterpelanggan(Request $request)
@@ -79,7 +79,7 @@ class PageController extends Controller
                 $pelanggan->foto = $request->file('foto')->getClientOriginalName();
                 $pelanggan->save();
             }
-            return redirect('/login')->with('sukses', 'Pendaftaran Berhasil');
+            return redirect('/registerpelanggan')->with('sukses', 'Data Berhasil Dibuat');
         }
     }
 }
