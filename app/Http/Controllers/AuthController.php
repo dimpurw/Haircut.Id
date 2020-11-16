@@ -9,7 +9,7 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('auth.login');
+        return view('page.login');
     }
 
     public function postlogin(Request $request)
@@ -17,12 +17,12 @@ class AuthController extends Controller
         if (Auth::attempt($request->only('username', 'password'))) {
             return redirect('/home');
         }
-        return redirect('/login');
+        return redirect('/login')->with('status', 'Maaf, username dan password anda tidak sesuai. Harap periksa kembali');
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect('/');
+        return redirect('/')->with('logout', 'Anda yakin ingin keluar ?');
     }
 }
