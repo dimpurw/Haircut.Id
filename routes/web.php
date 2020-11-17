@@ -23,14 +23,26 @@ Route::get('/registerpelanggan', 'PageController@registerpelanggan')->name('regi
 Route::post('/postregisterbarbershop', 'PageController@postregisterbarbershop');
 Route::post('/postregisterpelanggan', 'PageController@postregisterpelanggan');
 
-
 Route::get('login', 'AuthController@login')->name('login');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
 
+Route::get('/email', 'ForgotPasswordController@email');
+Route::post('postforgot', 'ForgotPasswordController@postforgot')->name('postforgot');
+Route::get('/password/reset', 'ForgotPasswordController@verifytoken');
+Route::post('/activationtoken', 'ForgotPasswordController@postverifytoken')->name('activationtoken');
+Route::get('/resetpassword/{id}', 'ForgotPasswordController@reset')->name('resetpassword');
+Route::post('/resetnewpassword/{id}', 'ForgotPasswordController@updatepass');
+
 Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']], function () {
     Route::get('/home', 'HomeController@index');
+});
+
+Route::group(['middleware' => ['auth', 'CheckRole:barbershop']], function () {
     Route::get('/dashboarduser', 'DashboardController@index');
+    Route::get('/barbershop/{id}/profile', 'Barbershop\ProfileController@profile');
+    Route::get('/barbershop/{id}/edit', 'Barbershop\ProfileController@editprofile');
+    Route::post('/barbershop/{id}/update', 'Barbershop\ProfileController@updateprofile');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
