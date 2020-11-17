@@ -51,6 +51,7 @@
             </div>
         </div>
         <div class="row property__gallery">
+            @foreach($data_barbershop as $barbershop)
             <div class="col-lg-3 col-md-4 col-sm-6 mix women">
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="img/Barbadox-Barbershop-845x684.jpg">
@@ -59,94 +60,11 @@
                         </ul>
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#">Barbadox Barbershop</a></h6>
+                        <h6><a href="#">{{$barbershop->nama}}</a></h6>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix men">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/Billionaire-Habits-802x684.jpg">
-                        <ul class="product__hover">
-                            <li><a href="img/product/product-2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Barbadox Barbershop</a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix accessories">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/Brooklyn-Barber-Shop.jpg">
-                        <ul class="product__hover">
-                            <li><a href="img/product/product-3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Barbadox Barbershop</a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/giovani-barbershop.jpg">
-                        <ul class="product__hover">
-                            <li><a href="img/product/product-3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Barbadox Barbershop</a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix kid">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/Barbadox-Barbershop-845x684.jpg">
-                        <ul class="product__hover">
-                            <li><a href="img/product/product-3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Barbadox Barbershop</a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="img/Barbadox-Barbershop-845x684.jpg">
-                        <ul class="product__hover">
-                            <li><a href="img/product/product-3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Barbadox Barbershop</a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/Barbadox-Barbershop-845x684.jpg">
-                        <ul class="product__hover">
-                            <li><a href="img/product/product-3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Barbadox Barbershop</a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="img/Barbadox-Barbershop-845x684.jpg">
-                        <ul class="product__hover">
-                            <li><a href="img/product/product-3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Barbadox Barbershop</a></h6>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="mx-auto product__item__text" style="width: 200px;">
@@ -165,21 +83,21 @@
                         <div class="banner__text">
                             <span style="color: black; font-size: 20px;">AYOO Daftarkan</span>
                             <h1>Barbershop Anda</h1>
-                            <a href="#">DAFTAR SEKARANG</a>
+                            <a href="registerbarbershop">DAFTAR SEKARANG</a>
                         </div>
                     </div>
                     <div class="banner__item">
                         <div class="banner__text">
                             <span style="color: black; font-size: 20px;">AYOO Daftarkan</span>
                             <h1>Barbershop Anda</h1>
-                            <a href="#">DAFTAR SEKARANG</a>
+                            <a href="registerbarbershop">DAFTAR SEKARANG</a>
                         </div>
                     </div>
                     <div class="banner__item">
                         <div class="banner__text">
                             <span style="color: black; font-size: 20px;">AYOO Daftarkan</span>
                             <h1>Barbershop Anda</h1>
-                            <a href="#">DAFTAR SEKARANG</a>
+                            <a href="registerbarbershop">DAFTAR SEKARANG</a>
                         </div>
                     </div>
                 </div>
