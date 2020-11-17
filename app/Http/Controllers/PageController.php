@@ -9,7 +9,8 @@ class PageController extends Controller
 {
     public function home()
     {
-        return view('welcome');
+        $data_barbershop = \App\Barbershop::all();
+        return view('welcome', ['data_barbershop' => $data_barbershop]);
     }
 
     public function registerbarbershop()
