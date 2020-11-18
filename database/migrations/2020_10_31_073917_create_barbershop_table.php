@@ -15,11 +15,8 @@ class CreateBarbershopTable extends Migration
     {
         Schema::create('barbershop', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('nama');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('alamat');
             $table->char('nomortelepon');
             $table->string('foto');
