@@ -47,7 +47,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Haircut.Id') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -59,8 +59,11 @@
                     <div class="col-xl-6 col-lg-7">
                         <nav class="header__menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li class="active"><a href="/home">Home</a></li>
                                 <li><a href="./shop.html">BarberShop</a></li>
+                                @if(auth()->user()->role == 'admin')
+                                <li><a href="/dashboards">Dashboard</a></li>
+                                @endif
                                 <li><a href="./contact.html">Contact</a></li>
                             </ul>
                         </nav>
@@ -69,18 +72,25 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ Auth::user()->username }}
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                @if(auth()->user()->role == 'barbershop')
+                                <a class="dropdown-item" href="/barbershop/{{auth()->user()->id}}/profile">Profile</a>
+                                @else(auth()->user()->role == 'pelanggan')
+                                <a class="dropdown-item" href="/pelanggan/{{auth()->user()->id}}/profile">Profile</a>
+                                @endif
+                                <a class="dropdown-item" href="/logout">Logout</a>
+                            </div>
+                        </div>
                     </ul>
                 </div>
+
+
             </div>
+            </ul>
     </div>
     </div>
     </nav>
