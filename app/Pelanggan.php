@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pelanggan extends Model
+class Pelanggan extends User
 {
     protected $table = 'pelanggan';
     protected $fillable = [
-        'nama', 'username', 'password', 'email', 'TGL', 'alamat', 'nomortelepon', 'foto'
+        'user_id', 'nama',  'TGL', 'alamat', 'nomortelepon', 'foto'
     ];
 
     /**
@@ -28,4 +28,9 @@ class Pelanggan extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
