@@ -262,7 +262,6 @@
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$pelanggan->nama}}</td>
-                                                <td>{{$pelanggan->email}}</td>
                                                 <td>{{$pelanggan->TGL}}</td>
                                                 <td>{{$pelanggan->alamat}}</td>
                                                 <td>{{$pelanggan->nomortelepon}}</td>

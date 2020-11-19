@@ -250,7 +250,6 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama</th>
-                                                <th>Email</th>
                                                 <th>Alamat</th>
                                                 <th>Nomor Telepon</th>
                                                 <th>Aksi</th>
@@ -261,7 +260,6 @@
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$barbershop->nama}}</td>
-                                                <td>{{$barbershop->email}}</td>
                                                 <td>{{$barbershop->alamat}}</td>
                                                 <td>{{$barbershop->nomortelepon}}</td>
                                                 <td>

@@ -16,10 +16,6 @@
                                 <input type="text" name="nama" class="form-control" id="exampleInputName1" value="{{$barbershop->nama}}">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail3">Email address</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail3" value="{{$barbershop->email}}">
-                            </div>
-                            <div class="form-group">
                                 <label for="exampleInputEmail3">Alamat</label>
                                 <input type="text" name="alamat" class="form-control" id="exampleInputEmail3" value="{{$barbershop->alamat}}">
                             </div>

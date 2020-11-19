@@ -16,10 +16,6 @@
                                 <input type="text" name="nama" class="form-control" id="exampleInputName1" value="{{$pelanggan->nama}}">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail3">Email address</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail3" value="{{$pelanggan->email}}">
-                            </div>
-                            <div class="form-group">
                                 <label for="exampleInputEmail3">Tanggal Lahir</label>
                                 <input type="date" name="TGL" class="form-control" id="exampleInputEmail3" value="{{$pelanggan->TGL}}">
                             </div>
