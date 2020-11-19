@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Barbershop extends Model
+class Barbershop extends User
 {
     protected $table = 'barbershop';
     protected $fillable = [
-        'nama', 'username', 'password', 'email', 'alamat', 'nomortelepon', 'foto'
+        'user_id', 'nama', 'alamat', 'nomortelepon', 'foto'
     ];
 
     /**
@@ -35,5 +35,10 @@ class Barbershop extends Model
             return asset('images/default.jpg');
         }
         return asset('images/' . $this->foto);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 }
