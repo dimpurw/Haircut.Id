@@ -26,7 +26,6 @@ class PageController extends Controller
     public function postregisterbarbershop(Request $request)
     {
         $this->validate($request, [
-            'nama' => ['required', 'string', 'max:50'],
             'username' => ['required', 'string', 'max:15'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
@@ -36,7 +35,6 @@ class PageController extends Controller
         //insert ke tabel user
         $user = new \App\User;
         $user->role = 'barbershop';
-        $user->name = $request->nama;
         $user->email = $request->email;
         $user->username = $request->username;
         $user->password = bcrypt($request->password);
@@ -56,7 +54,6 @@ class PageController extends Controller
     public function postregisterpelanggan(Request $request)
     { {
             $this->validate($request, [
-                'nama' => ['required', 'string', 'max:50'],
                 'username' => ['required', 'string', 'max:15'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
                 'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
@@ -66,7 +63,6 @@ class PageController extends Controller
             //insert ke tabel user
             $user = new \App\User;
             $user->role = 'pelanggan';
-            $user->name = $request->nama;
             $user->email = $request->email;
             $user->username = $request->username;
             $user->password = bcrypt($request->password);
