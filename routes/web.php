@@ -38,6 +38,12 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']],
     Route::get('/home', 'HomeController@index');
 });
 
+Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
+    Route::get('/pelanggan/{id}/profile', 'Pelanggan\ProfileController@profile');
+    Route::get('/pelanggan/{id}/edit', 'Pelanggan\ProfileController@editprofile');
+    Route::post('/pelanggan/{id}/update', 'Pelanggan\ProfileController@updateprofile');
+});
+
 Route::group(['middleware' => ['auth', 'CheckRole:barbershop']], function () {
     Route::get('/dashboarduser', 'DashboardController@index');
     Route::get('/barbershop/{id}/profile', 'Barbershop\ProfileController@profile');
