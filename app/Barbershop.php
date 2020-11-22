@@ -41,4 +41,9 @@ class Barbershop extends User
     {
         return $this->belongsTo('App\User');
     }
+
+    public function barber()
+    {
+        return $this->hasMany('App\Barber');
+    }
 }
