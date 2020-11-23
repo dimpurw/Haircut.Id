@@ -9,6 +9,10 @@ use Auth;
 
 class ProfileController extends Controller
 {
+    public function dashboard()
+    {
+        return view('barbershop.dashboard');
+    }
     public function profile($id)
     {
         $barbershop = \App\Barbershop::find($id);

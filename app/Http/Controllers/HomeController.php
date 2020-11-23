@@ -16,4 +16,10 @@ class HomeController extends Controller
         $data_barbershop = \App\Barbershop::all();
         return view('page.index', ['data_barbershop' => $data_barbershop]);
     }
+
+    public function detail($id)
+    {
+        $barbershop = \App\Barbershop::find($id);
+        return view('page.detail', ['detail' => $barbershop]);
+    }
 }
