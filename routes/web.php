@@ -36,6 +36,7 @@ Route::post('/resetnewpassword/{id}', 'ForgotPasswordController@updatepass');
 
 Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']], function () {
     Route::get('/home', 'HomeController@index');
+    Route::get('/detail/{id}', 'HomeController@detail');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
@@ -45,7 +46,10 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:barbershop']], function () {
-    Route::get('/dashboarduser', 'DashboardController@index');
+    Route::get('/dashboardsbarbershop', 'Barbershop\ProfileController@dashboard');
+    Route::get('/barber/{id}', 'Barbershop\BarberController@index');
+    Route::get('/barber/{id}/create', 'Barbershop\BarberController@create');
+    Route::post('/barber/{id}/store', 'Barbershop\BarberController@store');
     Route::get('/barbershop/{id}/profile', 'Barbershop\ProfileController@profile');
     Route::get('/barbershop/{id}/edit', 'Barbershop\ProfileController@editprofile');
     Route::post('/barbershop/{id}/update', 'Barbershop\ProfileController@updateprofile');
