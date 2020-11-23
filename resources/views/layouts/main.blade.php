@@ -63,6 +63,8 @@
                                 <li><a href="./shop.html">BarberShop</a></li>
                                 @if(auth()->user()->role == 'admin')
                                 <li><a href="/dashboards">Dashboard</a></li>
+                                @else(auth()->user()->role == 'barbershop')
+                                <li><a href="/dashboardsbarbershop">Dashboard</a></li>
                                 @endif
                                 <li><a href="./contact.html">Contact</a></li>
                             </ul>
