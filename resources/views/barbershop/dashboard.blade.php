@@ -211,9 +211,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/icons/mdi.html">
-                            <span class="menu-title">Data Booking</span>
-                            <i class="mdi mdi mdi-bank menu-icon"></i>
+                        <a class="nav-link" href="/barber/{{Auth()->user()->barbershop->id}}">
+                            <span class="menu-title">Data Barber</span>
+                            <i class="mdi mdi-clipboard-account menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
