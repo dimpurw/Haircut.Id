@@ -15,4 +15,9 @@ class Barber extends Model
     {
         return $this->belongsTo('App\Barbershop');
     }
+
+    public function booking()
+    {
+        return $this->hasMany('App\Booking');
+    }
 }
