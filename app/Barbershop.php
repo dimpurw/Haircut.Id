@@ -32,9 +32,9 @@ class Barbershop extends User
     public function getFoto()
     {
         if (!$this->foto) {
-            return asset('images/default.jpg');
+            return asset('foto/default.jpg');
         }
-        return asset('images/' . $this->foto);
+        return asset('foto/' . $this->foto);
     }
 
     public function user()
@@ -45,5 +45,10 @@ class Barbershop extends User
     public function barber()
     {
         return $this->hasMany('App\Barber');
+    }
+
+    public function booking()
+    {
+        return $this->hasMany('App\Booking');
     }
 }
