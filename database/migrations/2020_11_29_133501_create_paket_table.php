@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBookingTable extends Migration
+class CreatePaketTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateBookingTable extends Migration
      */
     public function up()
     {
-        Schema::create('booking', function (Blueprint $table) {
+        Schema::create('paket', function (Blueprint $table) {
             $table->id();
             $table->integer('barbershop_id');
             $table->integer('barber_id');
-            $table->date('tanggal');
-            $table->time('jam');
-            $table->string('status')->nullable();
+            $table->string('layanan');
+            $table->biginteger('harga');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateBookingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('booking');
+        Schema::dropIfExists('paket');
     }
 }
