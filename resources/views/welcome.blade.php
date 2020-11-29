@@ -60,7 +60,7 @@
                         </ul>
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#">{{$barbershop->nama}}</a></h6>
+                        <h6><a href="/detail/{{$barbershop->id}}">{{$barbershop->nama}}</a></h6>
                     </div>
                 </div>
             </div>
