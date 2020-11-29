@@ -20,4 +20,9 @@ class Barber extends Model
     {
         return $this->hasMany('App\Booking');
     }
+
+    public function paket()
+    {
+        return $this->hasMany('App\Paket');
+    }
 }
