@@ -8,7 +8,7 @@ class Booking extends Model
 {
     protected $table = 'booking';
     protected $fillable = [
-        'barber_id', 'tanggal', 'jam',
+        'barber_id', 'barbershop_id', 'tanggal', 'jam', 'status',
     ];
 
     public function barber()
