@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Haircut.Id') }}</title>
+    <title>Haircut</title>
 
     <!-- Scripts
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -48,7 +48,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ config('app.name', 'Haircut.Id') }}
+                    Haircut
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -63,7 +63,7 @@
                                 <li><a href="./shop.html">BarberShop</a></li>
                                 @if(auth()->user()->role == 'admin')
                                 <li><a href="/dashboards">Dashboard</a></li>
-                                @else(auth()->user()->role == 'barbershop')
+                                @elseif(auth()->user()->role == 'barbershop')
                                 <li><a href="/dashboardsbarbershop">Dashboard</a></li>
                                 @endif
                                 <li><a href="./contact.html">Contact</a></li>
@@ -81,7 +81,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 @if(auth()->user()->role == 'barbershop')
                                 <a class="dropdown-item" href="/barbershop/{{auth()->user()->id}}/profile">Profile</a>
-                                @else(auth()->user()->role == 'pelanggan')
+                                @elseif(auth()->user()->role == 'pelanggan')
                                 <a class="dropdown-item" href="/pelanggan/{{auth()->user()->id}}/profile">Profile</a>
                                 @endif
                                 <a class="dropdown-item" href="/logout">Logout</a>
