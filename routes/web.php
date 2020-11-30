@@ -33,7 +33,6 @@ Route::post('/resetnewpassword/{id}', 'ForgotPasswordController@updatepass');
 Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/detail/{id}', 'HomeController@detail');
-    Route::get('/booking', 'HomeController@booking');
     Route::get('/booking/{id}/show', 'HomeController@bookingshow');
     Route::get('/booking/{id}/checkout', 'HomeController@checkout');
     Route::post('/booking/{id}/order', 'HomeController@order');
