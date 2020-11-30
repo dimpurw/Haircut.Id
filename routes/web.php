@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', 'PageController@home');
 Route::get('/registerbarbershop', 'PageController@registerbarbershop');
 Route::get('/registerpelanggan', 'PageController@registerpelanggan')->name('register');
@@ -37,6 +33,10 @@ Route::post('/resetnewpassword/{id}', 'ForgotPasswordController@updatepass');
 Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/detail/{id}', 'HomeController@detail');
+    Route::get('/booking', 'HomeController@booking');
+    Route::get('/booking/{id}/show', 'HomeController@bookingshow');
+    Route::get('/booking/{id}/checkout', 'HomeController@checkout');
+    Route::post('/booking/{id}/order', 'HomeController@order');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
@@ -47,9 +47,19 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
 
 Route::group(['middleware' => ['auth', 'CheckRole:barbershop']], function () {
     Route::get('/dashboardsbarbershop', 'Barbershop\ProfileController@dashboard');
+    // mengelola barber
     Route::get('/barber/{id}', 'Barbershop\BarberController@index');
     Route::get('/barber/{id}/create', 'Barbershop\BarberController@create');
     Route::post('/barber/{id}/store', 'Barbershop\BarberController@store');
+    // mengelola booking
+    Route::get('/booking/{id}', 'Barbershop\JadwalController@index');
+    Route::get('/booking/{id}/create', 'Barbershop\JadwalController@create');
+    Route::post('/booking/{id}/store', 'Barbershop\JadwalController@store');
+    //mengelola layanan
+    Route::get('/layanan/{id}', 'Barbershop\LayananController@index');
+    Route::get('/layanan/{id}/create', 'Barbershop\LayananController@create');
+    Route::post('/layanan/{id}/store', 'Barbershop\LayananController@store');
+    // mengelola profile
     Route::get('/barbershop/{id}/profile', 'Barbershop\ProfileController@profile');
     Route::get('/barbershop/{id}/edit', 'Barbershop\ProfileController@editprofile');
     Route::post('/barbershop/{id}/update', 'Barbershop\ProfileController@updateprofile');
@@ -60,19 +70,3 @@ Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     Route::resource('/akunpelanggan', 'Admin\PelangganController');
     Route::resource('/akunbarbershop', 'Admin\BarbershopController');
 });
-
-// Route::get('/d', function () {
-//     return view('page.dashboard');
-// });
-
-// Route::get('/login', function () {
-//     return view('auth.login');
-// });
-
-
-// Auth::routes();
-
-// // verifikasi email
-// Auth::routes(['verify' => true]);
-
-// Route::get('/home', 'HomeController@index')->name('home');
