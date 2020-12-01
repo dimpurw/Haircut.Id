@@ -18,7 +18,8 @@ class CreateBookingTable extends Migration
             $table->integer('barbershop_id');
             $table->integer('barber_id');
             $table->date('tanggal');
-            $table->time('jam');
+            $table->time('start');
+            $table->time('end');
             $table->string('status')->nullable();
             $table->timestamps();
         });

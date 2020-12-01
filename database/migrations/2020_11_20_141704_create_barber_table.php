@@ -16,6 +16,7 @@ class CreateBarberTable extends Migration
         Schema::create('barber', function (Blueprint $table) {
             $table->id();
             $table->integer('barbershop_id');
+            $table->string('foto');
             $table->string('nama_barber', 50);
             $table->string('email', 30);
             $table->string('alamat');
