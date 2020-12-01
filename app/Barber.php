@@ -8,8 +8,16 @@ class Barber extends Model
 {
     protected $table = 'barber';
     protected $fillable = [
-        'barbershop_id', 'nama_barber', 'email', 'alamat', 'nomortelepon', 'keahlian',
+        'barbershop_id', 'foto', 'nama_barber', 'email', 'alamat', 'nomortelepon', 'keahlian',
     ];
+
+    public function getFoto()
+    {
+        if (!$this->foto) {
+            return asset('foto/default.jpg');
+        }
+        return asset('foto/' . $this->foto);
+    }
 
     public function barbershop()
     {
