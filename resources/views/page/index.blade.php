@@ -53,9 +53,9 @@
             @foreach($data_barbershop as $barbershop)
             <div class="col-lg-3 col-md-4 col-sm-6 mix women">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="img/Barbadox-Barbershop-845x684.jpg">
+                    <div class="product__item__pic set-bg" data-setbg="{{$barbershop->getFoto()}}">
                         <ul class="product__hover">
-                            <li><a href="img/product/product-2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
+                            <li><a href="{{$barbershop->getFoto()}}" class="image-popup"><span class="arrow_expand"></span></a></li>
                         </ul>
                     </div>
                     <div class="product__item__text">
