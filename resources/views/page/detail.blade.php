@@ -23,7 +23,7 @@
                             @foreach($barbershop->barber as $data)
                             <li>
                                 <div class="card" style="width: 10rem;">
-                                    <img src="{{$barbershop->getFoto()}}" class="card-img-top" alt="...">
+                                    <img src="{{$data->getFoto()}}" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$data->nama_barber}}</h5>
                                         <p class="card-text"><span>keahlian : </span>{{$data->keahlian}}</p>
