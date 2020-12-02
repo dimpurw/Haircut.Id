@@ -13,6 +13,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
+                                    <th> Foto </th>
                                     <th> Nama </th>
                                     <th> Email </th>
                                     <th> Alamat </th>
@@ -24,7 +25,7 @@
                                 @foreach($data_barber->barber as $barber)
                                 <tr>
                                     <td class="py-1">
-                                        <img src="../../assets/images/faces-clipart/pic-1.png" alt="image" />
+                                        <img src="{{$barber->getFoto()}}" alt="image" />
                                     </td>
                                     <td> {{$barber->nama_barber}} </td>
                                     <td> {{$barber->email}} </td>
