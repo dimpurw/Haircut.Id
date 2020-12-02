@@ -8,8 +8,12 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Edit Data Barbershop</h4>
-                        <form class="forms-sample" action="/barber/{{Auth()->user()->barbershop->id}}/store" method="POST">
+                        <form class="forms-sample" action="/barber/{{Auth()->user()->barbershop->id}}/store" method="POST" enctype="multipart/form-data">
                             @csrf
+                            <div class="form-group">
+                                <label for="foto" class="form-control">Foto</label>
+                                <input id="foto" type="file" name="foto">
+                            </div>
                             <div class="form-group">
                                 <label for="exampleInputName1">Nama</label>
                                 <input type="text" name="nama_barber" class="form-control" id="exampleInputName1">
