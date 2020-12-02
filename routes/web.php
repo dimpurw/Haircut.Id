@@ -34,14 +34,15 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']],
     Route::get('/home', 'HomeController@index');
     Route::get('/detail/{id}', 'HomeController@detail');
     Route::get('/booking/{id}/show', 'HomeController@bookingshow');
-    Route::get('/booking/{id}/checkout', 'HomeController@checkout');
-    Route::post('/booking/{id}/order', 'HomeController@order');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
     Route::get('/pelanggan/{id}/profile', 'Pelanggan\ProfileController@profile');
     Route::get('/pelanggan/{id}/edit', 'Pelanggan\ProfileController@editprofile');
     Route::post('/pelanggan/{id}/update', 'Pelanggan\ProfileController@updateprofile');
+    Route::get('/booking/{id}/checkout', 'HomeController@checkout');
+    Route::post('/booking/{id}/order', 'HomeController@order');
+    Route::get('/chat', 'pelanggan\ChatController@index');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:barbershop']], function () {
