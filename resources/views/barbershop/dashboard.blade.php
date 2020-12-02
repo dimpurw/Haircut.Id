@@ -62,7 +62,7 @@
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="assets/images/faces/face1.jpg" alt="image">
+                                <img src="{{auth()->user()->barbershop->getFoto()}}" alt="image">
                                 <span class="availability-status online"></span>
                             </div>
                             <div class="nav-profile-text">
@@ -193,12 +193,12 @@
                     <li class="nav-item nav-profile">
                         <a href="#" class="nav-link">
                             <div class="nav-profile-image">
-                                <img src="assets/images/faces/face1.jpg" alt="profile">
+                                <img src="{{auth()->user()->barbershop->getFoto()}}" alt="profile">
                                 <span class="login-status online"></span>
                                 <!--change to offline or busy as needed-->
                             </div>
                             <div class="nav-profile-text d-flex flex-column">
-                                <span class="font-weight-bold mb-2">{{ Auth::user()->name }}</span>
+                                <span class="font-weight-bold mb-2">{{ Auth::user()->barbershop->nama }}</span>
                                 <span class="text-secondary text-small">{{ Auth::user()->role }}</span>
                             </div>
                             <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -217,6 +217,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/layanan/{{Auth()->user()->barbershop->id}}">
+                            <span class="menu-title">Data Layanan</span>
+                            <i class="mdi mdi-clipboard-account menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/booking/{{Auth()->user()->barbershop->id}}">
+                            <span class="menu-title">Data Jadwal Booking</span>
+                            <i class="mdi mdi-clipboard-account menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="pages/forms/basic_elements.html">
                             <span class="menu-title">Data Transaksi</span>
                             <i class="mdi mdi-shopping menu-icon"></i>
@@ -230,7 +242,7 @@
                     <div class="row" id="proBanner">
                         <div class="col-12">
                             <span class="d-flex align-items-center purchase-popup">
-                                <p>Selamat Datang {{ Auth::user()->name }}</p>
+                                <p>Selamat Datang {{ Auth::user()->barbershop->nama }}</p>
                                 <a href="/home" target="_blank" class="btn download-button purchase-button ml-auto">Back To Home</a>
                                 <i class="mdi mdi-close" id="bannerClose"></i>
                             </span>
