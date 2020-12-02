@@ -13,11 +13,20 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## How to Usage
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    - Clone your project
+    - Go to the folder application using cd command on your cmd or terminal
+    - Run composer install on your cmd or terminal
+    - Copy .env.example file to .env on the root folder. You can type copy .env.example .env if using command prompt Windows or cp .env.example .env if using    terminal, Ubuntu
+    - Open your .env file and change the database name (DB_DATABASE) to whatever you have, username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration.
+    - By default, the username is root and you can leave the password field empty. (This is for Xampp)
+    - By default, the username is root and password is also root. (This is for Lamp)
+    - Run php artisan key:generate
+    - Run php artisan migrate
+    - Run php artisan serve
+    - Go to localhost:8000
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
 ## Laravel Sponsors
 
