@@ -26,7 +26,8 @@ class JadwalController extends Controller
         $booking->barbershop_id = $request->barbershop_id;
         $booking->barber_id = $request->barber_id;
         $booking->tanggal = $request->tanggal;
-        $booking->jam = $request->jam;
+        $booking->start = $request->start;
+        $booking->end = $request->end;
         $booking->save();
         return redirect('/dashboardsbarbershop');
     }
