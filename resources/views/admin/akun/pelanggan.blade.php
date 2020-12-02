@@ -250,7 +250,6 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama</th>
-                                                <th>Email</th>
                                                 <th>Tanggal Lahir</th>
                                                 <th>Alamat</th>
                                                 <th>Nomor Telepon</th>
