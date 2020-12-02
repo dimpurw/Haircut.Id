@@ -22,17 +22,34 @@ class BarberController extends Controller
         return view('barbershop.createbarber');
     }
 
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        $barbershop = \App\Barbershop::find($id);
-        Barber::create([
-            'barbershop_id' => $barbershop->id,
-            'nama_barber' => request('nama_barber'),
-            'email' => request('email'),
-            'alamat' => request('alamat'),
-            'nomortelepon' => request('nomortelepon'),
-            'keahlian' => request('keahlian'),
+
+        $request->validate([
+            'nama_barber' => 'required',
+            'email' => 'required',
+            'alamat' => 'required',
+            'nomortelepon' => 'required|max:13',
+            'keahlian' => 'required',
+            'foto' => 'required'
         ]);
+
+        if ($request->hasFile('foto')) {
+            $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
+        }
+
+        $barbershop_id = auth()->user()->barbershop->id;
+
+        $barber = new Barber;
+        $barber->nama_barber = $request->nama_barber;
+        $barber->email = $request->email;
+        $barber->alamat = $request->alamat;
+        $barber->nomortelepon = $request->nomortelepon;
+        $barber->keahlian = $request->keahlian;
+        $barber->foto = $request->file('foto')->getClientOriginalName();
+        $barber->barbershop_id = $barbershop_id;
+        $barber->save();
+
         return redirect('/dashboardsbarbershop');
     }
 }
