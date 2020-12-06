@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PageController@home');
+Route::get('/barbershop', 'PageController@barbershop');
 Route::get('/registerbarbershop', 'PageController@registerbarbershop');
 Route::get('/registerpelanggan', 'PageController@registerpelanggan')->name('register');
 Route::post('/postregisterbarbershop', 'PageController@postregisterbarbershop');
@@ -34,6 +35,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']],
     Route::get('/home', 'HomeController@index');
     Route::get('/detail/{id}', 'HomeController@detail');
     Route::get('/booking/{id}/show', 'HomeController@bookingshow');
+    Route::get('/showbarbershop', 'HomeController@barbershopshow');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
