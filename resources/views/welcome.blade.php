@@ -68,7 +68,9 @@
         </div>
     </div>
     <div class="mx-auto product__item__text" style="width: 200px;">
-        <button type="button" class="btn btn-outline-danger">Tampilkan Lebih Banyak</button>
+        <a href="/barbershop">
+            <button type="button" class="btn btn-outline-danger">Tampilkan Lebih Banyak</button>
+        </a>
     </div>
 </section>
 <!-- Product Section End -->
