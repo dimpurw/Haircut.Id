@@ -60,7 +60,7 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="/home">Home</a></li>
-                                <li><a href="./shop.html">BarberShop</a></li>
+                                <li><a href="/showbarbershop">BarberShop</a></li>
                                 @if(auth()->user()->role == 'admin')
                                 <li><a href="/dashboards">Dashboard</a></li>
                                 @elseif(auth()->user()->role == 'barbershop')

@@ -60,7 +60,7 @@
                         <nav class="header__menu">
                             <ul>
                                 <li class="active"><a href="/">Home</a></li>
-                                <li><a href="./shop.html">BarberShop</a></li>
+                                <li><a href="/barbershop">BarberShop</a></li>
                                 <li><a href="./contact.html">Contact</a></li>
                             </ul>
                         </nav>
