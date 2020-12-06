@@ -13,6 +13,12 @@ class PageController extends Controller
         return view('welcome', ['data_barbershop' => $data_barbershop]);
     }
 
+    public function barbershop()
+    {
+        $data_barbershop = \App\Barbershop::all();
+        return view('page.barbershop', ['data_barbershop' => $data_barbershop]);
+    }
+
     public function registerbarbershop()
     {
         return view('page.registerbarbershop');
