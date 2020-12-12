@@ -29,6 +29,14 @@ class Pelanggan extends User
         'email_verified_at' => 'datetime',
     ];
 
+    public function getFoto()
+    {
+        if (!$this->foto) {
+            return asset('foto/default.jpg');
+        }
+        return asset('foto/' . $this->foto);
+    }
+
     public function user()
     {
         return $this->belongsTo('App\User');
