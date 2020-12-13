@@ -11,14 +11,20 @@
                         <div class="product__details__pic__slider owl-carousel">
                             <img data-hash="product-1" class="product__big__img" src="{{$barbershop->getFoto()}}" alt="">
                         </div>
+                        <br>
+                        <a href="/chat/{{$barbershop->id}}">
+                            <img style="display:block; width:20%; margin-left:auto; margin-right:auto; cursor:pointer;" src="{{ asset('img/chat.png') }}" alt="">
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="product__details__text">
                     <h3>{{$barbershop->nama}}</span></h3>
-                    <div class="product__details__price">Barber</div>
+                    <h5>{{$barbershop->alamat}}</h5>
+                    <h5>{{$barbershop->nomortelepon}}</h5>
                     <div class="product__details__widget">
+                        <div class="product__details__price">Barber</div>
                         <ul>
                             @foreach($barbershop->barber as $data)
                             <li>
