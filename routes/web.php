@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,7 +45,9 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
     Route::post('/pelanggan/{id}/update', 'Pelanggan\ProfileController@updateprofile');
     Route::get('/booking/{id}/checkout', 'HomeController@checkout');
     Route::post('/booking/{id}/order', 'HomeController@order');
-    Route::get('/chat', 'pelanggan\ChatController@index');
+    Route::post('/webhook/xendit-invoice', 'HomeController@saveDataApi');
+    Route::get('/chat/{id}', 'pelanggan\ChatController@index');
+    Route::post('/chat/{id}/store', 'pelanggan\ChatController@store');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:barbershop']], function () {
