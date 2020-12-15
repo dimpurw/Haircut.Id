@@ -50,7 +50,7 @@ class ForgotPasswordController extends Controller
         $user = User::whereActive_token($request->active_token)->first();
 
         if ($user == null) {
-            return redirect()->back()->with('error', 'token tidak valid');
+            return redirect()->back()->with('error', 'error, token tidak valid');
         } else {
 
             return redirect('/resetpassword/' . $user->id)->with('success', 'silahkan masukkan password baru');
