@@ -44,6 +44,7 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
     Route::get('/pelanggan/{id}/edit', 'Pelanggan\ProfileController@editprofile');
     Route::post('/pelanggan/{id}/update', 'Pelanggan\ProfileController@updateprofile');
     Route::get('/booking/{id}/checkout', 'HomeController@checkout');
+    Route::get('GetSubCatAgainstMainCatEdit/{id}', 'HomeController@GetSubCatAgainstMainCatEdit');
     Route::post('/booking/{id}/order', 'HomeController@order');
     Route::post('/webhook/xendit-invoice', 'HomeController@saveDataApi');
     Route::get('/chat/{id}', 'pelanggan\ChatController@index');
@@ -53,9 +54,11 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
 Route::group(['middleware' => ['auth', 'CheckRole:barbershop']], function () {
     Route::get('/dashboardsbarbershop', 'Barbershop\ProfileController@dashboard');
     // mengelola barber
-    Route::get('/barber/{id}', 'Barbershop\BarberController@index');
+    Route::get('/barber/{id}', 'Barbershop\BarberController@index')->name('barber');
     Route::get('/barber/{id}/create', 'Barbershop\BarberController@create');
     Route::post('/barber/{id}/store', 'Barbershop\BarberController@store');
+    Route::get('/barber/{id}/edit', 'Barbershop\BarberController@edit');
+    Route::post('/barber/{id}/update', 'Barbershop\BarberController@update');
     // mengelola booking
     Route::get('/booking/{id}', 'Barbershop\JadwalController@index');
     Route::get('/booking/{id}/create', 'Barbershop\JadwalController@create');
@@ -68,6 +71,10 @@ Route::group(['middleware' => ['auth', 'CheckRole:barbershop']], function () {
     Route::get('/barbershop/{id}/profile', 'Barbershop\ProfileController@profile');
     Route::get('/barbershop/{id}/edit', 'Barbershop\ProfileController@editprofile');
     Route::post('/barbershop/{id}/update', 'Barbershop\ProfileController@updateprofile');
+    // chat
+    Route::get('/barbershopchat', 'Barbershop\ChatController@index');
+    Route::get('/barbershopchat/{id}', 'Barbershop\ChatController@chat');
+    Route::post('/barbershopchat/{id}/store', 'Barbershop\ChatController@store');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
