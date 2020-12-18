@@ -25,4 +25,14 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
     - Run php artisan migrate
     - Run php artisan serve
     - Go to localhost:8000
+    
+## TEAM TRPL C 6
+
+| Name                      | Job Desk     |
+| ------------------------- | ------------ |
+| Rosidah                   | Scrum Master |
+| Ardana Yulianto           | Analyst      |
+| Aji Cendika Siwi          | Designer     |
+| Dimas Pratama Purwadinata | Progammer    |
+| Johanes Ateta             | Tester       |
 
