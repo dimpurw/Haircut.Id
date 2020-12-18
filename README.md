@@ -30,6 +30,6 @@ HAIRCUT.ID merupakan suatu sistem  informasi penyedia pelayanan jasa barbershop 
 | Rosidah                   | Scrum Master |
 | Ardana Yulianto           | Analyst      |
 | Aji Cendika Siwi          | Designer     |
-| Dimas Pratama Purwadinata | Progammer    |
+| Dimas Pratama Purwadinata | Programmer    |
 | Johanes Ateta             | Tester       |
 
