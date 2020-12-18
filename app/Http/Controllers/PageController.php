@@ -32,11 +32,13 @@ class PageController extends Controller
     public function postregisterbarbershop(Request $request)
     {
         $this->validate($request, [
+            'nama' => ['required', 'string', 'max:50'],
             'username' => ['required', 'string', 'max:15'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'max:20', 'confirmed'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
             'alamat' => ['required', 'string', 'max:32'],
-            'nomortelepon' => ['required', 'digits:13'],
+            'nomortelepon' => ['required', 'min:11', 'max:13', 'regex:/(0)[0-9]{10}/'],
+            'foto' => ['required', 'mimes:jpeg,jpg,png']
         ]);
         //insert ke tabel user
         $user = new \App\User;
@@ -58,31 +60,33 @@ class PageController extends Controller
     }
 
     public function postregisterpelanggan(Request $request)
-    { {
-            $this->validate($request, [
-                'username' => ['required', 'string', 'max:15'],
-                'password' => ['required', 'string', 'min:8', 'confirmed'],
-                'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
-                'alamat' => ['required', 'string', 'max:32'],
-                'nomortelepon' => ['required', 'digits:13'],
-            ]);
-            //insert ke tabel user
-            $user = new \App\User;
-            $user->role = 'pelanggan';
-            $user->email = $request->email;
-            $user->username = $request->username;
-            $user->password = bcrypt($request->password);
-            $user->remember_token = Str::random(60);
-            $user->save();
-            //insert ke tabel pelanggan
-            $request->request->add(['user_id' => $user->id]);
-            $pelanggan = \App\Pelanggan::create($request->all());
-            if ($request->hasFile('foto')) {
-                $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
-                $pelanggan->foto = $request->file('foto')->getClientOriginalName();
-                $pelanggan->save();
-            }
-            return redirect('/registerpelanggan')->with('sukses', 'Data Berhasil Dibuat');
+    {
+        $this->validate($request, [
+            'nama' => ['required', 'string', 'max:50'],
+            'username' => ['required', 'string', 'max:50'],
+            'password' => ['required', 'string', 'min:8', 'max:50', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
+            'TGL' => ['required', 'date'],
+            'alamat' => ['required', 'string', 'max:32'],
+            'nomortelepon' => ['required', 'min:11', 'max:13', 'regex:/(0)[0-9]{10}/'],
+            'foto' => ['required', 'mimes:jpeg,jpg,png']
+        ]);
+        //insert ke tabel user
+        $user = new \App\User;
+        $user->role = 'pelanggan';
+        $user->email = $request->email;
+        $user->username = $request->username;
+        $user->password = bcrypt($request->password);
+        $user->remember_token = Str::random(60);
+        $user->save();
+        //insert ke tabel pelanggan
+        $request->request->add(['user_id' => $user->id]);
+        $pelanggan = \App\Pelanggan::create($request->all());
+        if ($request->hasFile('foto')) {
+            $request->file('foto')->move('foto/', $request->file('foto')->getClientOriginalName());
+            $pelanggan->foto = $request->file('foto')->getClientOriginalName();
+            $pelanggan->save();
         }
+        return redirect('/registerpelanggan')->with('sukses', 'Data Berhasil Dibuat');
     }
 }
