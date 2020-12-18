@@ -1,5 +1,5 @@
 
-## About Laravel
+## About Haircut.ID
 
 HAIRCUT.ID merupakan suatu sistem  informasi penyedia pelayanan jasa barbershop di daerah Jember yang berbasis website. Aplikasi ini dibuat untuk memudahkan bagi para pencari pelayanan jasa potong rambut khususnya dalam pencarian lokasi barbershop, kemudahan dalam mengantri, transaksi secara online dan juga perbandingan kelayakan pelayanan jasa dari berbagai barbershop melalui fitur rating yang diberikan
 
