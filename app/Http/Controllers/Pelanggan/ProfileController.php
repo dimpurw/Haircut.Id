@@ -23,6 +23,16 @@ class ProfileController extends Controller
 
     public function updateprofile(Request $request, $id)
     {
+        $this->validate($request, [
+            'nama' => ['required', 'string', 'max:50'],
+            'username' => ['required', 'string', 'max:15'],
+            'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
+            'alamat' => ['required', 'string', 'max:32'],
+            'TGL' => ['required', 'date'],
+            'nomortelepon' => ['required', 'min:11', 'max:13', 'regex:/(0)[0-9]{10}/'],
+            'foto' => ['required', 'mimes:jpeg,jpg,png']
+        ]);
+
         $user = \Auth::user()->id;
         if ($request->hasFile('foto')) {
             $request->file('foto')->move('foto', $request->file('foto')->getClientOriginalName());
@@ -49,6 +59,6 @@ class ProfileController extends Controller
                     "alamat" => $request->alamat,
                 ]);
         }
-        return redirect(url('/home'))->with('success', 'data berhasil diubah');
+        return redirect(url('/pelanggan/{id}/profile'))->with('success', 'data berhasil diubah');
     }
 }
