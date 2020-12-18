@@ -52,4 +52,37 @@ class BarberController extends Controller
 
         return redirect('/dashboardsbarbershop');
     }
+
+    public function edit($id)
+    {
+        $barber = \App\Barber::find($id);
+        return view('barbershop.editbarber', ['barber' => $barber]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama_barber' => 'required',
+            'email' => 'required',
+            'alamat' => 'required',
+            'nomortelepon' => 'required|max:13',
+            'keahlian' => 'required',
+            'foto' => 'required'
+        ]);
+
+        $barber = \App\Barber::find($id);
+        $barber->nama_barber = $request->nama_barber;
+        $barber->email = $request->email;
+        $barber->alamat = $request->alamat;
+        $barber->nomortelepon = $request->nomortelepon;
+        $barber->keahlian = $request->keahlian;
+        if ($request->has('foto')) {
+            $foto = $request->file('foto');
+            $filename = $foto->getClientOriginalName();
+            $foto->move(public_path('foto/'), $filename);
+            $barber->foto = $request->file('foto')->getClientOriginalName();
+        }
+        $barber->update();
+        return redirect(url('/barber/' . $barber->id))->with('success', 'data berhasil diubah');
+    }
 }
