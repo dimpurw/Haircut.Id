@@ -20,4 +20,14 @@ class Booking extends Model
     {
         return $this->belongsTo('App\Barbershop');
     }
+
+    public function pelanggan()
+    {
+        return $this->belongsTo('App\Pelanggan');
+    }
+
+    public function paket()
+    {
+        return $this->belongsTo('App\Paket');
+    }
 }

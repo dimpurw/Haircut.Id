@@ -46,4 +46,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne('App\Barbershop');
     }
+
+    public function transaksi()
+    {
+        return $this->hasMany('App\Transaksi');
+    }
 }

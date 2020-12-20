@@ -20,4 +20,9 @@ class Paket extends Model
     {
         return $this->belongsTo('App\Barbershop');
     }
+
+    public function booking()
+    {
+        return $this->hasOne('App\Booking');
+    }
 }

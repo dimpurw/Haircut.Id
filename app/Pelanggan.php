@@ -46,4 +46,14 @@ class Pelanggan extends User
     {
         return $this->hasMany('App\Letter');
     }
+
+    public function transaksi()
+    {
+        return $this->hasMany('App\Transaksi');
+    }
+
+    public function booking()
+    {
+        return $this->hasMany('App\Booking');
+    }
 }

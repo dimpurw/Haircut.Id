@@ -61,4 +61,9 @@ class Barbershop extends User
     {
         return $this->hasMany('App\letter');
     }
+
+    public function transaksi()
+    {
+        return $this->hasMany('App\Transaksi');
+    }
 }
