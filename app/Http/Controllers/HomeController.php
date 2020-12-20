@@ -84,14 +84,23 @@ class HomeController extends Controller
             'amount' => $harga
         ];
 
+        $saldo_admin = ($harga * 5) / 100;
+        $saldo_barber = $harga - $saldo_admin;
+
         $createInvoice = \Xendit\Invoice::create($params);
         $transaksi = new Transaksi;
+        $transaksi->pelanggan_id = $request->pelanggan_id;
+        $transaksi->barbershop_id = $request->barbershop_id;
         $transaksi->invoice_id = $createInvoice['id'];
+        $transaksi->saldo_barber = $saldo_barber;
+        $transaksi->saldo_admin = $saldo_admin;
         $transaksi->save();
         $x = \Xendit\Invoice::retrieve($createInvoice['id']);
 
         $booking = \App\Booking::find($id);
-        $booking->update($request->all());
+        $booking->pelanggan_id = $request->pelanggan_id;
+        $booking->paket_id = $request->paket_id;
+        $booking->update();
         return redirect(url($x['invoice_url']))->with('success', 'data berhasil diubah');
     }
 }
