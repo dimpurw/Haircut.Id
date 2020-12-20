@@ -17,8 +17,10 @@ class CreateTransaksiTable extends Migration
             $table->id();
             $table->string('invoice_id');
             $table->integer('pelanggan_id');
-            $table->integer('barber_id');
-            $table->string('keterangan');
+            $table->integer('barbershop_id');
+            $table->integer('saldo_barber');
+            $table->integer('saldo_admin');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }
