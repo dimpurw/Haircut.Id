@@ -33,7 +33,6 @@ class ProfileController extends Controller
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users'],
             'alamat' => ['required', 'string', 'max:32'],
             'nomortelepon' => ['required', 'min:11', 'max:13', 'regex:/(0)[0-9]{10}/'],
-            'foto' => ['required', 'mimes:jpeg,jpg,png']
         ]);
 
         $user = \Auth::user()->id;
