@@ -12,4 +12,16 @@ class DashboardController extends Controller
     {
         return view('admin.dashboard');
     }
+
+    public function booking()
+    {
+        $booking = \App\Booking::all();
+        return view('admin.riwayatbooking', ['booking' => $booking]);
+    }
+
+    public function transaksi()
+    {
+        $transaksi = \App\Transaksi::all();
+        return view('admin.transaksi', ['transaksi' => $transaksi]);
+    }
 }
