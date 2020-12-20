@@ -40,15 +40,18 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan,barbershop,admin']],
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
+    // mengelola profile
     Route::get('/pelanggan/{id}/profile', 'Pelanggan\ProfileController@profile');
     Route::get('/pelanggan/{id}/edit', 'Pelanggan\ProfileController@editprofile');
     Route::post('/pelanggan/{id}/update', 'Pelanggan\ProfileController@updateprofile');
+    // booking dan pembayaran
     Route::get('/booking/{id}/checkout', 'HomeController@checkout');
     Route::get('GetSubCatAgainstMainCatEdit/{id}', 'HomeController@GetSubCatAgainstMainCatEdit');
     Route::post('/booking/{id}/order', 'HomeController@order');
     Route::post('/webhook/xendit-invoice', 'HomeController@saveDataApi');
     Route::get('/chat/{id}', 'pelanggan\ChatController@index');
     Route::post('/chat/{id}/store', 'pelanggan\ChatController@store');
+    Route::get('/transaksi/{id}', 'pelanggan\TransaksiController@index');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:barbershop']], function () {
@@ -75,10 +78,15 @@ Route::group(['middleware' => ['auth', 'CheckRole:barbershop']], function () {
     Route::get('/barbershopchat', 'Barbershop\ChatController@index');
     Route::get('/barbershopchat/{id}', 'Barbershop\ChatController@chat');
     Route::post('/barbershopchat/{id}/store', 'Barbershop\ChatController@store');
+    // transaksi
+    Route::get('/riwayatbooking/{id}', 'Barbershop\TransaksiController@booking');
+    Route::get('/transaksi/{id}', 'Barbershop\TransaksiController@index');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:admin']], function () {
     Route::get('/dashboards', 'Admin\DashboardController@index');
     Route::resource('/akunpelanggan', 'Admin\PelangganController');
     Route::resource('/akunbarbershop', 'Admin\BarbershopController');
+    Route::get('/riwayatbooking', 'Admin\DashboardController@booking');
+    Route::get('/transaksi', 'Admin\DashboardController@transaksi');
 });
