@@ -100,6 +100,7 @@ class HomeController extends Controller
         $booking = \App\Booking::find($id);
         $booking->pelanggan_id = $request->pelanggan_id;
         $booking->paket_id = $request->paket_id;
+        $booking->status = $request->status;
         $booking->update();
         return redirect(url($x['invoice_url']))->with('success', 'data berhasil diubah');
     }
