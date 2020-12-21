@@ -49,9 +49,9 @@ Route::group(['middleware' => ['auth', 'CheckRole:pelanggan']], function () {
     Route::get('GetSubCatAgainstMainCatEdit/{id}', 'HomeController@GetSubCatAgainstMainCatEdit');
     Route::post('/booking/{id}/order', 'HomeController@order');
     Route::post('/webhook/xendit-invoice', 'HomeController@saveDataApi');
-    Route::get('/chat/{id}', 'pelanggan\ChatController@index');
-    Route::post('/chat/{id}/store', 'pelanggan\ChatController@store');
-    Route::get('/transaksi/{id}', 'pelanggan\TransaksiController@index');
+    Route::get('/chat/{id}', 'Pelanggan\ChatController@index');
+    Route::post('/chat/{id}/store', 'Pelanggan\ChatController@store');
+    Route::get('/riwayattransaksi/{id}', 'Pelanggan\TransaksiController@index');
 });
 
 Route::group(['middleware' => ['auth', 'CheckRole:barbershop']], function () {
