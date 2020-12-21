@@ -224,13 +224,13 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/icons/mdi.html">
+                        <a class="nav-link" href="/riwayatbooking">
                             <span class="menu-title">Data Booking</span>
                             <i class="mdi mdi-library-books menu-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/forms/basic_elements.html">
+                        <a class="nav-link" href="/transaksi">
                             <span class="menu-title">Data Transaksi</span>
                             <i class="mdi mdi-shopping menu-icon"></i>
                         </a>
