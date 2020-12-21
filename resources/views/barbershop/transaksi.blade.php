@@ -12,35 +12,27 @@
                             {{ session('success') }}
                         </div>
                         @endif
-                        <h4 class="card-title">Data Barber</h4>
-                        <p class="card-description"><a href="/barber/{{Auth()->user()->barbershop->id}}/create"><code>Tambah Data Barber</code></a>
+                        <h4 class="card-title">Data Transaksi</h4>
+                        <p class="card-description"><code>Total Saldo</code><span>{{$data_barber->transaksi->sum('saldo_barber')}}</span>
                         </p>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th> Foto </th>
-                                    <th> Nama </th>
+                                    <th> Nama Pelanggan</th>
                                     <th> Email </th>
                                     <th> Alamat </th>
                                     <th> Nomor telepon </th>
-                                    <th> Keahlian </th>
-                                    <th> Aksi </th>
+                                    <th> saldo </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($data_barber->barber as $barber)
+                                @foreach($data_barber->transaksi as $transaksi)
                                 <tr>
-                                    <td class="py-1">
-                                        <img src="{{$barber->getFoto()}}" alt="image" />
-                                    </td>
-                                    <td> {{$barber->nama_barber}} </td>
-                                    <td> {{$barber->email}} </td>
-                                    <td> {{$barber->alamat}} </td>
-                                    <td> {{$barber->nomortelepon}} </td>
-                                    <td> {{$barber->keahlian}} </td>
-                                    <td>
-                                        <a href="/barber/{{$barber->id}}/edit" class="badge badge-success">Edit</a>
-                                    </td>
+                                    <td> {{$transaksi->pelanggan->nama}} </td>
+                                    <td> {{$transaksi->pelanggan->user->email}} </td>
+                                    <td> {{$transaksi->pelanggan->alamat}} </td>
+                                    <td> {{$transaksi->pelanggan->nomortelepon}} </td>
+                                    <td> {{$transaksi->saldo_barber}} </td>
                                 </tr>
                                 @endforeach
                             </tbody>

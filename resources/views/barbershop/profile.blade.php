@@ -1,6 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
+@if (session('success'))
+<div class="alert alert-primary" role="alert">
+    {{ session('success') }}
+</div>
+@endif
 <section class="contact spad">
     <div class="container">
         <div class="row">

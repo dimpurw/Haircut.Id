@@ -229,7 +229,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/forms/basic_elements.html">
+                        <a class="nav-link" href="/riwayatbooking/{{Auth()->user()->barbershop->id}}">
+                            <span class="menu-title">Riwayat Booking</span>
+                            <i class="mdi mdi-clipboard-account menu-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/transaksi/{{Auth()->user()->barbershop->id}}">
                             <span class="menu-title">Data Transaksi</span>
                             <i class="mdi mdi-shopping menu-icon"></i>
                         </a>
