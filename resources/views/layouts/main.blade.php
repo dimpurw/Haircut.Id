@@ -65,8 +65,11 @@
                                 <li><a href="/dashboards">Dashboard</a></li>
                                 @elseif(auth()->user()->role == 'barbershop')
                                 <li><a href="/dashboardsbarbershop">Dashboard</a></li>
+                                <li><a href="/barbershopchat">Chat</a></li>
                                 @endif
-                                <li><a href="./contact.html">Contact</a></li>
+                                @if(auth()->user()->role == 'pelanggan')
+                                <li><a href="/riwayattransaksi/{{Auth()->user()->pelanggan->id}}">Riwayat Transaksi</a></li>
+                                @endif
                             </ul>
                         </nav>
                     </div>

@@ -61,12 +61,9 @@
                             <ul>
                                 <li class="active"><a href="/">Home</a></li>
                                 <li><a href="/barbershop">BarberShop</a></li>
-                                <li><a href="./contact.html">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
-
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->

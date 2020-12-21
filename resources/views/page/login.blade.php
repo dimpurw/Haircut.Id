@@ -17,7 +17,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="dashboard/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="dashboard/images/favicon.ico" />
+    <link rel="shortcut icon" href="img/haircut.jpg" />
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left p-5">
                             <div class="brand-logo">
-                                <img src="dashboard/images/logo.svg">
+                                <img src="img/haircut.jpg">
                             </div>
                             <h4>Hello! let's get started</h4>
                             <h6 class="font-weight-light">Sign in to continue.</h6>

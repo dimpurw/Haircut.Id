@@ -23,8 +23,8 @@
                         <div class="col-lg-12">
                             <div class="checkout__form__input">
                                 <p>Layanan <span>*</span></p>
-                                <select name="" class="form-control mb-25" style="color: #000; background-color: #fff;" required oninvalid="alert('Pilih LAYANAN!');">
-                                    <option value="">
+                                <select name="paket_id" class="form-control mb-25" id="layanan" style="color: #000; background-color: #fff;" required oninvalid="alert('Pilih LAYANAN!');">
+                                    <option value="0">
                                         - pilih layanan-
                                     </option class="form-control mb-25" style="color: #000">
                                     @foreach($paket as $list)
@@ -33,7 +33,14 @@
                                     </option>
                                     @endforeach
                                 </select>
-                                <li class="list-group-item mt-2"><span>Harga : </span>10000</li>
+                                <li class="list-group-item mt-2">
+                                    <div class="field item form-group">
+                                        <label class="col-md-3 col-sm-3  label-align">Harga<span> : </span></label>
+                                        <div class="col-md-6 col-sm-6" id="harga">
+                                            <p>0</p>
+                                        </div>
+                                    </div>
+                                </li>
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -55,6 +62,8 @@
                             </div>
                         </div>
                         <input type="text" value="claim" name="status" hidden>
+                        <input type="text" value="{{Auth()->user()->pelanggan->id}}" name="pelanggan_id" hidden>
+                        <input type="text" value="{{$booking->barbershop_id}}" name="barbershop_id" hidden>
                         <button type="submit" class="site-btn">Place oder</button>
                     </div>
                 </div>
@@ -206,4 +215,24 @@
     </div>
 </div>
 <!-- Search End -->
+
+<script>
+    $(document).ready(function() {
+        $('#layanan').on('change', function() {
+            console.log('klik');
+            let id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '{{url("GetSubCatAgainstMainCatEdit")}}/' + id,
+                success: function(response) {
+                    var response = JSON.parse(response);
+                    console.log(id);
+                    console.log(response);
+                    $('#harga').empty();
+                    $('#harga').append('<p>' + response['harga'] + '</p>');
+                }
+            });
+        });
+    });
+</script>
 @endsection
