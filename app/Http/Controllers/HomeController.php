@@ -20,7 +20,7 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $this->keyXendit = Xendit::setApiKey('xnd_development_zbk4MyoCcYlQtNjxNrLEZNoACVbXzllSLq8S7gcZok5FpTKEvD4WJ3EUCYlqTg');
+        $this->keyXendit = Xendit::setApiKey('xnd_development_OuWU3W1sDwUZH51gdGGgV2tI9uEjHByB4HDxpGnjCeE7NCH9RdjVZpP7qWzs36');
     }
 
     public function GetSubCatAgainstMainCatEdit($id)
@@ -70,8 +70,8 @@ class HomeController extends Controller
 
     public function order(Request $request, $id)
     {
-        $data = DB::table('paket')->where('id', $request->id)->first();
-
+        $data = DB::table('paket')->first();
+        
         $email = $request->email;
         $layanan = $data->layanan;
         $harga = $data->harga;
@@ -100,8 +100,14 @@ class HomeController extends Controller
         $booking = \App\Booking::find($id);
         $booking->pelanggan_id = $request->pelanggan_id;
         $booking->paket_id = $request->paket_id;
-        $booking->status = $request->status;
         $booking->update();
         return redirect(url($x['invoice_url']))->with('success', 'data berhasil diubah');
+    }
+
+    public function invoice($x ='')
+    {
+        $this->keyXendit;
+        $x = \Xendit\Invoice::retrieve($x);
+        return $x;
     }
 }
