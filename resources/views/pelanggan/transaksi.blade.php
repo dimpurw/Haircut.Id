@@ -7,23 +7,21 @@
             <tr>
                 <th scope="col">Nama</th>
                 <th scope="col">Nama BarberShop</th>
-                <th scope="col">Tanggal Booking</th>
-                <th scope="col">Jam Mulai</th>
-                <th scope="col">Jam berakhir</th>
-                <th scope="col">Layanan</th>
                 <th scope="col">Harga</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($pelanggan->booking as $booking)
+            @foreach($transaksi as $tra)
+            @php
+                $y = new \App\Http\Controllers\HomeController;
+                $x = $y->invoice($tra->invoice_id);
+                $tra->update(['keterangan'=>$x['status']]);
+                @endphp
             <tr>
-                <td>{{$pelanggan->nama}}</td>
-                <td> {{$booking->barbershop->nama}} </td>
-                <td>{{$booking->tanggal}}</td>
-                <td>{{$booking->start}}</td>
-                <td>{{$booking->end}}</td>
-                <td>{{$booking->paket->layanan}}</td>
-                <td>{{$booking->paket->harga}}</td>
+                <td>{{$tra->pelanggan->nama}}</td>
+                <td>{{$tra->barbershop->nama}}</td>
+                <a href=""><td> {{$tra->saldo_barber}} </td></a>
+                <td><a href="https://checkout-staging.xendit.co/web/{{$tra->invoice_id}}">{{$tra->keterangan}}</a></td>
             </tr>
             @endforeach
         </tbody>

@@ -61,7 +61,6 @@
                                 <input type="text" value="{{Auth()->user()->email}}" name="email">
                             </div>
                         </div>
-                        <input type="text" value="claim" name="status" hidden>
                         <input type="text" value="{{Auth()->user()->pelanggan->id}}" name="pelanggan_id" hidden>
                         <input type="text" value="{{$booking->barbershop_id}}" name="barbershop_id" hidden>
                         <button type="submit" class="site-btn">Place oder</button>

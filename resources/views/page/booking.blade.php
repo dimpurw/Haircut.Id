@@ -17,7 +17,7 @@
     <div class="row">
         @if(\Carbon\Carbon::parse($data->tanggal)->lessThan(\Carbon\Carbon::now()))
         <div class="col"><button type="button" class="btn btn-secondary" hidden="">{{$data->tanggal}}<span> {{$data->start}} - {{$data->end}}</span></button></div>
-        @elseif($data->status == 'claim')
+        @elseif($data->status == 'Settled')
         <div class="col"><button type="button" class="btn btn-danger" readonly title="jadwal telah di booking, harap pilih jadwal lain">{{$data->tanggal}}<span> {{$data->start}} - {{$data->end}}</span></button></div>
         @else
         <div class="col"><a href="/booking/{{$data->id}}/checkout"><button type="button" class="btn btn-secondary">{{$data->tanggal}}<span> {{$data->start}} - {{$data->end}}</span></button></a></div>
