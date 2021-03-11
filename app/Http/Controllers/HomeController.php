@@ -25,7 +25,7 @@ class HomeController extends Controller
 
     public function GetSubCatAgainstMainCatEdit($id)
     {
-        echo json_encode(DB::table('paket')->where('id', $id)->first());
+        echo json_encode(DB::table('paket')->where('barber_id', $id)->first());
     }
 
     public function index()
